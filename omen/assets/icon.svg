@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- OMEN Monitor — symbolic 风扇图标(白色,GNOME 顶栏风格) -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <g fill="#ffffff" fill-rule="evenodd">
+    <!-- 3 叶,120 度等分 -->
+    <g transform="translate(32 32)">
+      <path d="M 0 -6 C 14 -10 22 -22 14 -34 C -4 -30 -12 -16 0 -6 Z"/>
+      <path d="M 0 -6 C 14 -10 22 -22 14 -34 C -4 -30 -12 -16 0 -6 Z" transform="rotate(120)"/>
+      <path d="M 0 -6 C 14 -10 22 -22 14 -34 C -4 -30 -12 -16 0 -6 Z" transform="rotate(240)"/>
+    </g>
+    <!-- 中心轴 -->
+    <circle cx="32" cy="32" r="7"/>
+  </g>
+</svg>

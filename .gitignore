@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Editor / agent metadata (keep .claude/settings.json, ignore local override)
+.codex/
+.agents/
+.claude/settings.local.json
+
+# Kernel module build artefacts
+*.ko
+*.o
+*.mod
+*.mod.c
+*.mod.o
+*.cmd
+.*.cmd
+modules.order
+Module.symvers
+driver/omen_pp_compat.h
+
+# Local caches and historical experiments (kept on disk for reference,
+# not under version control)
+cache/

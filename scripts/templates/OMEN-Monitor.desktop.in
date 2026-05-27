@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=OMEN Monitor
+Comment=OMEN 16-wf0 fan monitor and control panel
+Exec=@REPO_DIR@/run_omen_monitor.sh
+Path=@REPO_DIR@
+Icon=@REPO_DIR@/omen/assets/icon.svg
+Terminal=false
+StartupNotify=true
+Categories=Utility;System;

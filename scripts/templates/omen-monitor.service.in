@@ -1,0 +1,12 @@
+[Unit]
+Description=OMEN 16-wf0 fan monitor (GUI)
+After=graphical-session.target
+PartOf=graphical-session.target
+
+[Service]
+ExecStart=@REPO_DIR@/run_omen_monitor.sh
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=graphical-session.target
