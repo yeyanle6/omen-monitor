@@ -14,8 +14,9 @@ After loading, the patched module exposes:
 
 ## Requirements
 
-- Ubuntu 22.04 with HWE kernel 6.8 (`linux-hwe-6.8-headers-*` installed)
-- `build-essential` and `dkms`
+- Linux running kernel **6.8.x** with matching headers
+  (Ubuntu 22.04: `linux-hwe-6.8-headers-*`)
+- `build-essential` and `dkms` (or equivalent packages on your distro)
 - **Secure Boot disabled in BIOS** — the module is unsigned
 
 ## Build (transient, no install)

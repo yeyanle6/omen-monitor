@@ -1,7 +1,7 @@
 # OMEN Monitor
 
 > 一个为 **HP OMEN 16-wf0** 定制的温控监视器 + 风扇控制面板
-> A custom thermal monitor + fan control panel for **HP OMEN 16-wf0**
+> A thermal monitor + fan control panel built for **HP OMEN 16-wf0**
 
 **[中文](#中文)** &nbsp;·&nbsp; **[English](#english)**
 
@@ -28,13 +28,14 @@ PyQt5 GUI,实时显示 CPU/GPU/NVMe 温度与占用,自定义风扇曲线,带系
 | 组件 | 要求 |
 |---|---|
 | 机型 | HP OMEN 16-wf0xxx · **board ID 8BAB** · BIOS F.26+ |
-| OS | Ubuntu 22.04 LTS |
-| Kernel | 6.8.x HWE (`linux-hwe-6.8-headers-*`) |
+| Kernel | Linux 6.8.x · 装与运行内核匹配的 headers(Ubuntu 22.04 用 `linux-hwe-6.8-headers-*`) |
 | Secure Boot | **关闭**(patched 模块未签名) |
 | Python | 3.10+ · `PyQt5` · `matplotlib` · `psutil` |
-| NVIDIA | 595.x(可选,仅 GPU 仪表) |
+| GPU(可选) | NVIDIA 595.x 驱动,无 GPU 时仪表自动隐藏 |
 
 ### 🚀 快速开始
+
+> 下面命令是 Debian/Ubuntu 系示例,其他发行版自行替换包管理器与包名。
 
 ```bash
 # 1. 装系统依赖
@@ -99,13 +100,14 @@ A PyQt5 GUI showing live CPU/GPU/NVMe temperatures and usage, with custom fan cu
 | Component | Required |
 |---|---|
 | Hardware | HP OMEN 16-wf0xxx · **board ID 8BAB** · BIOS F.26+ |
-| OS | Ubuntu 22.04 LTS |
-| Kernel | 6.8.x HWE (`linux-hwe-6.8-headers-*`) |
+| Kernel | Linux 6.8.x · install headers matching your running kernel (Ubuntu 22.04: `linux-hwe-6.8-headers-*`) |
 | Secure Boot | **disabled** (patched module is unsigned) |
 | Python | 3.10+ · `PyQt5` · `matplotlib` · `psutil` |
-| NVIDIA | 595.x (optional, only for GPU tiles) |
+| GPU (optional) | NVIDIA 595.x driver; tiles auto-hide if no GPU |
 
 ### 🚀 Quick Start
+
+> Commands below show Debian/Ubuntu syntax; swap to your distro's package manager and names as needed.
 
 ```bash
 # 1. Install system dependencies
