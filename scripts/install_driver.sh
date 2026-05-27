@@ -74,13 +74,21 @@ if lsmod | grep -q '^hp_wmi'; then
     rmmod hp_wmi || warn "rmmod hp_wmi 失败 (可能被持有)"
 fi
 modprobe hp_wmi
-sleep 1
+# hwmon 节点在 udev 事件链上注册,modprobe 返回 ≠ 节点已可见。
+# 轮询最多 ~5s,期间 udev settle 一次以加速。
+udevadm settle --timeout=3 || true
+for i in 1 2 3 4 5; do
+    if ls /sys/class/hwmon/hwmon*/pwm1 >/dev/null 2>&1; then
+        break
+    fi
+    sleep 1
+done
 if ls /sys/class/hwmon/hwmon*/pwm1 >/dev/null 2>&1; then
     HWMON=$(grep -l '^hp$' /sys/class/hwmon/hwmon*/name 2>/dev/null | head -1 | xargs dirname)
     echo "✓ pwm1 节点已就绪: ${HWMON}/pwm1"
     echo "  enable=$(cat ${HWMON}/pwm1_enable)  pwm=$(cat ${HWMON}/pwm1)"
 else
-    die "安装成功但未发现 pwm1 节点。检查 dmesg | tail -30。"
+    die "安装成功但 ~5s 内未发现 pwm1 节点。手动试: sudo rmmod hp_wmi && sudo modprobe hp_wmi; 仍无则看 dmesg | tail -30。"
 fi
 
 echo
